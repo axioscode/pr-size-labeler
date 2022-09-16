@@ -22,7 +22,7 @@ github::calculate_total_modifications() {
       local ignore_file=0
       for regex_to_ignore in $files_to_ignore; do
         if [[ "$(jq::base64 '.filename')" =~ $regex_to_ignore ]]; then
-          >&2 echo "--IGNORING FILE $(jq::base64 '.filename') : $regex_to_ignore"
+          echo >&2 "--IGNORING FILE $(jq::base64 '.filename') : $regex_to_ignore"
           ignore_file=1
         fi
       done
